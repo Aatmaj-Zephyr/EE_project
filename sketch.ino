@@ -34,7 +34,7 @@ void loop() {
   three++;
   if(three==3){
     beep();
-    score=Read();
+    score=score+Read();
     Serial.println(score);
     three=0;
   }
@@ -72,12 +72,14 @@ int Read(){
     else{
       Serial.print("-");
     }
-    if(3-chance<=0){ //if chances are over.
-      return small_score;
-    }
+    
     while(digitalRead(levers[i])==1){
       delay(1);
       //pause till it is removed.
+    }
+    if(3-chance<=0){ //if chances are over.
+    Serial.print("b");
+      return small_score;
     }
   }
   }
