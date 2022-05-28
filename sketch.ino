@@ -8,7 +8,7 @@ int red_val[]={255,0,0,255,0,255,255};
 int green_val[]={0,0,255,255,255,165,0};
 int blue_val[]={255,255,255,0,0,0,0};
 int clock=0;
-int Delay=500;
+int Delay=50;
 int LED_Burn_time=1000;
 int color=0;
 int levers[]={2,3,4,5,6,7,8};
@@ -47,11 +47,17 @@ for(int i=0;i<=6;i++){
     if(i==color){
       score++;
       Serial.println("+");
+      clock=0; //if correct prevent double tapping
+     
     }
     else{
       Serial.print("-");
     }
-
+ while(digitalRead(levers[i])==1){
+        //while button is still pressed do nothing.
+        // this is to prevent multiple taps (long press)
+        ;
+      }
   }
 }
 clock++;
