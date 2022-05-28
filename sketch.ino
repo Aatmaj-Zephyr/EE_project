@@ -1,44 +1,40 @@
-Docs
-sketch.ino
-diagram.json
-Library Manager
 
-int red_light_pin= 13;
-int green_light_pin = 12;
-int blue_light_pin = 11;
+int red_light_pin= 11;
+int green_light_pin = 10;
+int blue_light_pin = 9;
 int counter=0;
-//VIBGYORW
-int red_val[]={255,0,0,255,0,255,255,255};
-int green_val[]={0,0,255,255,255,165,0,255};
-int blue_val[]={255,255,255,0,0,0,0,255};
+//VIBGYOR
+int red_val[]={255,0,0,255,0,255,255};
+int green_val[]={0,0,255,255,255,165,0};
+int blue_val[]={255,255,255,0,0,0,0};
 int clock=0;
 int Delay=500;
 int LED_Burn_time=1000;
 int color=0;
-int levers[]={8,7,4,2,A0,A1,A2,A3};
+int levers[]={2,3,4,5,6,7,8};
 int score=0;
 void setup() {
+  Serial.begin(9600);
   pinMode(red_light_pin, OUTPUT);
   pinMode(green_light_pin, OUTPUT);
   pinMode(blue_light_pin, OUTPUT);
-  pinMode(8, INPUT);
-  pinMode(7, INPUT);
-  pinMode(4, INPUT);
   pinMode(2, INPUT);
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
-
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+  pinMode(6, INPUT);
+  pinMode(7, INPUT);
+  pinMode(8, INPUT);
 
 
 
 }
 void loop() {
   if(clock*Delay>=LED_Burn_time){ //next color
-      int temp=random(0,8);
+      Serial.print(score);
+      int temp=random(0,7);
       if(temp==color){ //prevent same colors comming twice
-            color=(color+1)%8;
+            color=(color+1)%7;
       }
       else{
       color=temp;
@@ -46,7 +42,7 @@ void loop() {
       RGB_color(red_val[color],green_val[color],blue_val[color]);
       clock=0;
 }
-for(int i=0;i<=7;i++){
+for(int i=0;i<=6;i++){
   if(digitalRead(levers[i])==1){
     if(i==color){
       score++;
@@ -63,8 +59,7 @@ delay(Delay);
 }
 void RGB_color(int red_light_value, int green_light_value, int blue_light_value)
  {
-  analogWrite(red_light_pin, 255-red_light_value);
-  analogWrite(green_light_pin, 255-green_light_value);
-  analogWrite(blue_light_pin, 255-blue_light_value);
-}
-Simulation
+  analogWrite(red_light_pin, red_light_value);
+  analogWrite(green_light_pin,green_light_value);
+  analogWrite(blue_light_pin, blue_light_value);
+ }
