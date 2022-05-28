@@ -1,34 +1,36 @@
-int red_light_pin= 13;
-int green_light_pin = 12;
-int blue_light_pin = 11;
+
+int red_light_pin= 11;
+int green_light_pin = 10;
+int blue_light_pin = 9;
 int counter=0;
-//VIBGYORW
-int red_val[]={255,0,0,255,0,255,255,255};
-int green_val[]={0,0,255,255,255,165,0,255};
-int blue_val[]={255,255,255,0,0,0,0,255};
+//VIBGYOR
+int red_val[]={255,0,0,255,0,255,255};
+int green_val[]={0,0,255,255,255,165,0};
+int blue_val[]={255,255,255,0,0,0,0};
 int clock=0;
-int Delay=500; //clockspeed
-int LED_Burn_time=1000;
+int Delay=500;
 int color[3];
-int levers[]={8,7,4,2,A0,A1,A2,A3};
+int LED_Burn_time=500;
+int beeper = 13;
+int levers[]={2,3,4,5,6,7,8};
 int score=0;
 void setup() {
+  Serial.begin(9600);
   pinMode(red_light_pin, OUTPUT);
   pinMode(green_light_pin, OUTPUT);
   pinMode(blue_light_pin, OUTPUT);
-  pinMode(8, INPUT);
-  pinMode(7, INPUT);
-  pinMode(4, INPUT);
   pinMode(2, INPUT);
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+  pinMode(5, INPUT);
+  pinMode(6, INPUT);
+  pinMode(7, INPUT);
+  pinMode(8, INPUT);
+  pinMode(beeper,OUTPUT);
 
-
-
-
+  
 }
+
 int three=-1; //Three can be 0,1,2
 void loop() {
   three++;
@@ -51,9 +53,9 @@ int temp=random(0,8);
       delay(LED_Burn_time);
 }
 void beep(){ //beep the buxxer
-  digitalWrite(6, LOW);//6 is negative pin
+  digitalWrite(beeper, LOW);//6 is negative pin
   delay(500); //wait for 0.5 sec before turning buzzer off.
-  digitalWrite(6, HIGH);
+  digitalWrite(beeper, HIGH);
 }
 int Read(){
   int small_score=0;
