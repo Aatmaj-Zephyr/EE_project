@@ -11,7 +11,7 @@ int clock=0;
 int Delay=50;
 int LED_Burn_time=1000;
 int color=0;
-int levers[]={2,3,4,5,6,7,12};
+int levers[]={2,13,4,5,6,7,8};
 int score=0;
 void setup() {
   Serial.begin(9600);
@@ -19,13 +19,15 @@ void setup() {
   pinMode(green_light_pin, OUTPUT);
   pinMode(blue_light_pin, OUTPUT);
   pinMode(2, INPUT);
-  pinMode(3, INPUT);
+  pinMode(13, INPUT);
   pinMode(4, INPUT);
   pinMode(5, INPUT);
   pinMode(6, INPUT);
   pinMode(7, INPUT);
+  pinMode(8, INPUT);
   pinMode(12, INPUT);
   pinMode(A5,INPUT);
+  pinMode(3,OUTPUT);
  
  
 
@@ -33,8 +35,11 @@ void setup() {
 }
 void loop() {
   LED_Burn_time=abs(5*(analogRead(A5)+50));//convert potentiometer into delay time
+  analogWrite(3,score);//score indicator brightness
+ //digitalWrite(3,HIGH);
+      Serial.println(score);
+
   if(clock*Delay>=LED_Burn_time){ //next color
-      Serial.println("in loop");
 
       Serial.print(score);
       int temp=random(0,7);
@@ -57,6 +62,9 @@ for(int i=0;i<=6;i++){
     }
     else{
       Serial.print("-");
+      if(score>0){
+      score--;
+      }
     }
  while(digitalRead(levers[i])==1){
    Serial.print("pressed....");
