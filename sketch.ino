@@ -25,11 +25,14 @@ void setup() {
   pinMode(6, INPUT);
   pinMode(7, INPUT);
   pinMode(12, INPUT);
-
+  pinMode(A5,INPUT);
+ 
+ 
 
 
 }
 void loop() {
+  LED_Burn_time=abs(5*(analogRead(A5)+50));//convert potentiometer into delay time
   if(clock*Delay>=LED_Burn_time){ //next color
       Serial.println("in loop");
 
