@@ -1,18 +1,24 @@
 
-int red_light_pin= 11;
-int green_light_pin = 10;
-int blue_light_pin = 9;
+int red_light_pin= 11; //pin for RED light LED in RGB
+int green_light_pin = 10; //pin for GREEN light LED in RGB
+int blue_light_pin = 9; //pin for BLUE light LED in RGB
+
 int counter=0;
-//VIBGYOR
+
+//VIBGYOR RGB values
 int red_val[]=   {255,0,  0,  255,0,  255,255};
 int green_val[]= {0,  0,  255,255,255,165,0};
 int blue_val[]=  {255,255,255,0,  0,  0,  0};
-int clock=0;
-int Delay=50;
-int LED_Burn_time=1000;
+
+int clock=0; //clock of the program
+int Delay=50; //delay in between two phases
+int LED_Burn_time=1000; //time which LED burns
+
 int color=0;
-int levers[]={2,13,4,5,6,7,8};
+int levers[]={2,13,4,5,6,7,8}; //push buttons
+
 int score=0;
+
 void setup() {
   Serial.begin(9600);
   pinMode(red_light_pin, OUTPUT);
@@ -49,7 +55,7 @@ void loop() {
       else{
       color=temp;
       }
-      RGB_color(red_val[color],green_val[color],blue_val[color]);
+      RGB_color(red_val[color],green_val[color],blue_val[color]); //set color value
       clock=0;
 }
 for(int i=0;i<=6;i++){
