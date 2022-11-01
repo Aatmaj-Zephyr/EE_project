@@ -1,0 +1,21 @@
+Timeline
+1) UI Designing in Figma- 	December First week
+UI designing wil be done for the entire scope of the project (inclusing 
+2) LED blinking with arduino -  Jan second week	- 
+
+issues of pairing app with bluetooth (mobile control) as well as pairing app with
+bluetooth module. will be taken into consideration. 
+https://create.arduino.cc/projecthub/mayooghgirish/arduino-bluetooth-basic-tutorial-d8b737
+This will requrire time and vacations can be utilized for it.
+Testing of the prototype will be done on hardware.
+The app made will be built in APk format.
+
+This will be done by Tejas, Taher and Kavya
+ 
+3) Basic UI implemntation- 	Feb First week	
+4) 
+
+
+Measures taken to lower risk
+1) Bluetoth working prototype- First prototype will send information over the bluetooth, solving issues like pairing and app+arduino connectivity
+2) Smoke testing - Build will be made every week by Tejas. 
