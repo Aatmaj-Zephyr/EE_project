@@ -11,3 +11,9 @@
 2) What must be the size of the toy?
 3) What must be the Weight of the toy- is it to be light or can it be heavy weight?
 4) Is battery powered preferable or plugged in can be an option?
+
+
+#### Enhancements
+1) Solar
+2) Verbal commands
+3) Sequential (memory) eg 2 step, 3 step
