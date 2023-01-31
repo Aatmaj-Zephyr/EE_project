@@ -15,3 +15,8 @@ Working prototyope looked like this-
 Simulation-
 
 https://www.tinkercad.com/things/esHNaz6ZfjR
+
+
+Abstract - To develop a portable lightweight cost-effective active toy for increasing eye hand coordination for children.
+
+![image](https://user-images.githubusercontent.com/83284294/215750126-f8fed0fe-a8cc-4125-94b7-c2eccd7f9c3c.png)
